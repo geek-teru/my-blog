@@ -9,16 +9,30 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Tech Blog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Your Name`,
+      summary: `who writes about tech.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A tech blog about Infrastructure, Backend, and Frontend.`,
+    siteUrl: `https://your-blog-url.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `yourusername`,
     },
+    menuLinks: [
+      {
+        name: 'Infrastructure',
+        link: '/infrastructure'
+      },
+      {
+        name: 'Backend',
+        link: '/backend'
+      },
+      {
+        name: 'Frontend',
+        link: '/frontend'
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-image`,
