@@ -46,3 +46,24 @@ src/components/
   - サイトのナビゲーションメニュー
   - ロゴやサイトタイトルの表示
   - レスポンシブなハンバーガーメニュー
+
+```
+pages/index.js または templates/blog-post.js
+└── components/layout.js
+    └── components/header.js
+    └── children (メインコンテンツ)
+        ├── components/bio.js
+        └── ブログ記事コンテンツ
+```
+
+## ページ読み込みの流れ
+```
+graph TD
+    A[content/blog/*.md] --> B[gatsby-source-filesystem]
+    B --> C[gatsby-transformer-remark]
+    C --> D[GraphQLスキーマ]
+    D --> E[Reactコンポーネント]
+    E --> F[ブラウザ表示]
+```
+
+
