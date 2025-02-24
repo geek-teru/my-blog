@@ -5,6 +5,7 @@ import queryString from "query-string"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BlogCard from "../components/blog-card"
+import Pagination from "../components/pagination"
 import "../styles/blog-cards.css"
 
 // トップページのコンポーネント
@@ -42,9 +43,7 @@ const BlogIndex = ({ data, location }) => {
           <BlogCard key={post.fields.slug} post={post} />
         ))}
       </div>
-      <p style={{ textAlign: 'center', marginTop: '2rem' }}>
-        現在のページ: {currentPage} / 全{numPages}ページ
-      </p>
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   )
 }
