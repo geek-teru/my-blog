@@ -5,6 +5,7 @@ import queryString from "query-string"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BlogCard from "../components/blog-card"
+import Pagination from "../components/pagination"
 import "../styles/blog-cards.css"
 
 // トップページのコンポーネント
@@ -14,7 +15,7 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const currentLocation = useLocation()
   const { page = 1 } = queryString.parse(currentLocation.search)
-  const postsPerPage = 10
+  const postsPerPage = 2
   const currentPage = parseInt(page, 10)
   const posts = data.allMarkdownRemark.nodes
   const numPages = Math.ceil(posts.length / postsPerPage)
@@ -42,9 +43,7 @@ const BlogIndex = ({ data, location }) => {
           <BlogCard key={post.fields.slug} post={post} />
         ))}
       </div>
-      <p style={{ textAlign: 'center', marginTop: '2rem' }}>
-        現在のページ: {currentPage} / 全{numPages}ページ
-      </p>
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   )
 }

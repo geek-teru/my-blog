@@ -25,3 +25,4 @@ const currentSection = location.hash.replace('#', '')
 // パスの取得
 const currentPath = location.pathname
 ```
+
