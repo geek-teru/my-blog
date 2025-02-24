@@ -25,6 +25,7 @@ src/components/
 ├── layout.js        # ページの共通レイアウトを定義
 ├── seo.js           # SEO関連のメタタグを管理
 └── header.js        # サイトヘッダーのナビゲーション
+```
 
 主な役割：
 * bio.js: 
@@ -57,6 +58,8 @@ pages/index.js または templates/blog-post.js
 ```
 
 ## ページ読み込みの流れ
+`gatsby-source-filesystem`や`gatsby-transformer-remark`などのプラグインを使用して、マークダウンファイルを読み込んでGraphQLスキーマに変換する。
+
 ```
 graph TD
     A[content/blog/*.md] --> B[gatsby-source-filesystem]
