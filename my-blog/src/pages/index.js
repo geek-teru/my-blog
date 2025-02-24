@@ -14,7 +14,7 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const currentLocation = useLocation()
   const { page = 1 } = queryString.parse(currentLocation.search)
-  const postsPerPage = 10
+  const postsPerPage = 2
   const currentPage = parseInt(page, 10)
   const posts = data.allMarkdownRemark.nodes
   const numPages = Math.ceil(posts.length / postsPerPage)
