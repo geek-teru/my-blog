@@ -1,0 +1,60 @@
+/* グローバルレイアウト */
+.global-wrapper {
+  margin-top: 120px; /* ヘッダーの高さ分 */
+}
+
+.global-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.main-content {
+  padding-top: 1rem;
+}
+
+.page-container {
+  padding-top: 1.5rem;
+}
+
+/* フッター */
+.global-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid #e2e8f0;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-content a {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .global-content {
+    padding: 0 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} 

@@ -21,6 +21,11 @@ http://localhost:8000/
 
 ```
 
+# GraphQL の確認
+```
+http://localhost:8000/___graphql
+```
+
 ### Gatsby プロジェクトのセットアップ
 
 

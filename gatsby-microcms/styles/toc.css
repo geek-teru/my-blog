@@ -1,0 +1,72 @@
+.toc-container {
+  position: sticky;
+  top: 140px; /* ヘッダーの高さ + 余白 */
+  width: 240px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  padding: 0.5rem 1rem;
+  margin-left: 0;
+  font-size: 0.9rem;
+  /* カードスタイルを削除 */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.toc-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1a202c;
+  font-size: 1rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.toc-item a {
+  color: #4a5568;
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toc-item a:hover {
+  color: #3182ce;
+}
+
+.toc-item.active a {
+  color: #3182ce;
+  font-weight: 600;
+}
+
+/* 見出しレベルによるインデント */
+.toc-level-2 {
+  margin-left: 0;
+}
+
+.toc-level-3 {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1100px) {
+  .toc-container {
+    display: none; /* 画面幅が狭い場合は非表示 */
+  }
+} 

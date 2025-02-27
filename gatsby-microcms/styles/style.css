@@ -1,0 +1,19 @@
+/* グローバルスタイルの修正 */
+.global-wrapper {
+  margin: 120px auto 0;  /* 上部マージンはヘッダー分 */
+  max-width: 1200px;     /* コンテンツの最大幅 */
+  padding: 0 2rem;       /* 左右の余白 */
+  box-sizing: border-box; /* パディングを幅に含める */
+}
+
+/* 既存のヘッダースタイルを上書き */
+.global-header {
+  left: 0;  /* 左端に固定 */
+  right: 0; /* 右端に固定 */
+  width: 100vw; /* ビューポート幅いっぱいに */
+  box-sizing: border-box;
+}
+
+.header-content {
+  box-sizing: border-box;
+} 
