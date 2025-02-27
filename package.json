@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gatsby-source-microcms": "^3.0.0"
+  }
+}
