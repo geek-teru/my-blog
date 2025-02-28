@@ -1,8 +1,20 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { useState } from "react"
+import SearchForm from "./search-form"
 import "../../styles/header.css"
 
 const Header = ({ siteTitle }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+  
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="global-header">
       {/* 上段: サイトタイトル */}
@@ -12,23 +24,32 @@ const Header = ({ siteTitle }) => {
             <Link to="/">{siteTitle || "マイテックブログ"}</Link>
           </h1>
           
+          {/* ハンバーガーメニューボタン */}
+          <button 
+            className="hamburger-button" 
+            onClick={toggleMenu}
+            aria-label="メニュー"
+            aria-expanded={isMenuOpen}
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+          
           {/* 検索ボックス */}
           <div className="search-box">
-            <input type="text" placeholder="ブログを検索..." />
+            <SearchForm />
           </div>
         </div>
       </div>
       
       {/* 下段: ナビゲーション */}
-      <div className="header-bottom">
+      <div className={`header-bottom ${isMenuOpen ? 'menu-open' : ''}`}>
         <div className="header-content">
           <nav className="main-nav">
             <ul>
-              <li><Link to="/">ホーム</Link></li>
-              <li><Link to="/categories">カテゴリ</Link></li>
-              <li><Link to="/tags">タグ</Link></li>
-              <li><Link to="/about">このブログについて</Link></li>
-              <li><Link to="/contact">お問い合わせ</Link></li>
+              <li><Link to="/" onClick={closeMenu}>ホーム</Link></li>
+              <li><Link to="/search" onClick={closeMenu}>検索</Link></li>
             </ul>
           </nav>
         </div>

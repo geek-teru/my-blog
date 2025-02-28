@@ -37,6 +37,39 @@
   letter-spacing: -0.5px;
 }
 
+/* ハンバーガーメニューボタン */
+.hamburger-button {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* ハンバーガーメニューのアニメーション */
+.menu-open .hamburger-button .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-open .hamburger-button .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .hamburger-button .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* 下段のスタイル */
 .header-bottom {
   padding: 0.8rem 0;
@@ -103,6 +136,44 @@
 
   .search-box input {
     width: 200px;
+  }
+  
+  /* ハンバーガーメニュー表示 */
+  .hamburger-button {
+    display: block;
+  }
+  
+  /* 検索ボックスを非表示 */
+  .header-top .search-box {
+    display: none;
+  }
+  
+  /* メニュー非表示時 */
+  .header-bottom {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1e2a4a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* メニュー表示時 */
+  .header-bottom.menu-open {
+    display: block;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .main-nav a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
   }
 }
 
