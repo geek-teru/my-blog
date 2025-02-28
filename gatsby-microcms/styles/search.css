@@ -1,0 +1,88 @@
+.search-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.search-page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a202c;
+  text-align: center;
+}
+
+.search-page-form-container {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.search-info {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #4a5568;
+  font-size: 1rem;
+}
+
+.search-query {
+  font-weight: 600;
+  color: #3182ce;
+}
+
+.search-count {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.search-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  color: #718096;
+  margin-bottom: 2rem;
+}
+
+.search-prompt {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  color: #718096;
+}
+
+.search-results {
+  margin-top: 2rem;
+}
+
+/* ブログカードのスタイルを継承 */
+.search-page .blog-posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .search-page-title {
+    font-size: 1.75rem;
+  }
+  
+  .search-page .blog-posts-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page .blog-posts-container {
+    grid-template-columns: 1fr;
+  }
+} 

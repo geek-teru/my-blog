@@ -77,7 +77,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
             
             <footer className="post-footer">
               <Link to="/" className="back-link">
-                ← 記事一覧に戻る
+                ← ホームに戻る
               </Link>
             </footer>
           </article>
