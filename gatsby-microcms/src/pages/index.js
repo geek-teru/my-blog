@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="page-container">
-        <Seo title="マイテックブログ" />
+        <Seo title="Home" />
         
         {!hasData && (
           <div className="no-data-message">
@@ -72,7 +72,7 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage
 
-export const Head = () => <Seo title="マイテックブログ" />
+export const Head = () => <Seo title="Home" />
 
 export const query = graphql`
   query {

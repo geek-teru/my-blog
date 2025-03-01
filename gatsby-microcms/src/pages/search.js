@@ -46,7 +46,7 @@ const SearchPage = ({ data }) => {
   return (
     <Layout>
       <div className="search-page">
-        <h1 className="search-page-title">検索</h1>
+        <h1 className="search-page-title">検索結果</h1>
         
         {/* 検索フォーム */}
         <div className="search-page-form-container">
@@ -104,7 +104,7 @@ const SearchPage = ({ data }) => {
 
 export default SearchPage
 
-export const Head = () => <Seo title="検索" />
+export const Head = () => <Seo title="検索結果" />
 
 export const query = graphql`
   query {
