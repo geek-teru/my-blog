@@ -48,8 +48,7 @@ const Header = ({ siteTitle }) => {
         <div className="header-content">
           <nav className="main-nav">
             <ul>
-              <li><Link to="/" onClick={closeMenu}>ホーム</Link></li>
-              <li><Link to="/search" onClick={closeMenu}>検索</Link></li>
+              <li><Link to="/" onClick={closeMenu}>Home</Link></li>
             </ul>
           </nav>
         </div>
