@@ -59,8 +59,13 @@ const BlogPostTemplate = ({ data, pageContext }) => {
             <header className="post-header">
               <h1 className="post-title">{content.title}</h1>
               <div className="post-meta">
-                {content.category && content.category.name && (
-                  <span className="post-category">{content.category.name}</span>
+                {/* タグを表示 */}
+                {content.tag && content.tag.length > 0 && (
+                  <div className="post-tags">
+                    {content.tag.map(tag => (
+                      <span key={tag.id} className="post-tag">{tag.name}</span>
+                    ))}
+                  </div>
                 )}
                 {formattedDate && (
                   <span className="post-date">{formattedDate}</span>
@@ -112,6 +117,10 @@ export const pageQuery = graphql`
             content
             publishedAt
             category {
+              id
+              name
+            }
+            tag {
               id
               name
             }

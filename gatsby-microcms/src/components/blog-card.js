@@ -29,9 +29,13 @@ const BlogCard = ({ post }) => {
           <Link to={`/blog/${contents.id}`}>{contents.title || "タイトルなし"}</Link>
         </h2>
         
-        {/* カテゴリーを先に表示し、その後に日付を表示 */}
-        {contents.category && contents.category.name && (
-          <span className="post-category">{contents.category.name}</span>
+        {/* タグを表示 */}
+        {contents.tag && contents.tag.length > 0 && (
+          <div className="post-tags">
+            {contents.tag.map(tag => (
+              <span key={tag.id} className="post-tag">{tag.name}</span>
+            ))}
+          </div>
         )}
         
         {formattedDate && (
