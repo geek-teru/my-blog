@@ -87,6 +87,10 @@ export const query = graphql`
               id
               name
             }
+            tag {
+              id
+              name
+            }
             publishedAt
           }
         }
