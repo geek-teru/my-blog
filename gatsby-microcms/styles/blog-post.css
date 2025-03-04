@@ -45,20 +45,6 @@
   gap: 1rem;
 }
 
-.post-category {
-  display: inline-block;
-  background: #ebf4ff;
-  color: #3182ce;
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  width: fit-content;
-  text-align: center;
-  line-height: 1.2;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
 .post-date {
   color: #718096;
   font-size: 0.875rem;

@@ -21,7 +21,7 @@ const Header = ({ siteTitle }) => {
       <div className="header-top">
         <div className="header-content">
           <h1 className="site-title">
-            <Link to="/">{siteTitle || "マイテックブログ"}</Link>
+            <Link to="/">{siteTitle || "Teru's Blog"}</Link>
           </h1>
           
           {/* ハンバーガーメニューボタン */}

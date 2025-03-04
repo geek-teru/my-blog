@@ -20,7 +20,8 @@ const SearchForm = ({ className }) => {
             contents {
               id
               title
-              category {
+              tag {
+                id
                 name
               }
             }
@@ -43,12 +44,18 @@ const SearchForm = ({ className }) => {
 
     const query = searchQuery.toLowerCase().trim()
     
-    // タイトルとカテゴリで検索
+    // タイトルとタグで検索
     const filteredSuggestions = allPosts
       .filter(post => {
         const title = post.title?.toLowerCase() || ""
-        const category = post.category?.name?.toLowerCase() || ""
-        return title.includes(query) || category.includes(query)
+        
+        // タグ検索
+        const tags = post.tag || []
+        const tagMatch = tags.some(tag => 
+          tag.name?.toLowerCase().includes(query)
+        )
+        
+        return title.includes(query) || tagMatch
       })
       .slice(0, 5) // 最大5件まで表示
     

@@ -116,10 +116,6 @@ export const pageQuery = graphql`
             title
             content
             publishedAt
-            category {
-              id
-              name
-            }
             tag {
               id
               name

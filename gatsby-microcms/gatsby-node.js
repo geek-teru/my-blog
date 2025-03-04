@@ -22,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 id
                 title
                 publishedAt
-                category {
+                tag {
                   id
                   name
                 }

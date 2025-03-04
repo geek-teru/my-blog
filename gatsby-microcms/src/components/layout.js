@@ -26,13 +26,13 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `マイテックブログ`} />
+      <Header siteTitle={data.site.siteMetadata?.title || `Teru's Blog`} />
       <div className="global-wrapper">
         <div className="global-content">
           <main className="main-content">{children}</main>
           <footer className="global-footer">
             <div className="footer-content">
-              <p>© {new Date().getFullYear()} {data.site.siteMetadata?.title || `マイテックブログ`} All rights reserved.</p>
+              <p>© {new Date().getFullYear()} {data.site.siteMetadata?.title || `Teru's Blog`} All rights reserved.</p>
               <p>
                 Built with <a href="https://www.gatsbyjs.com">Gatsby</a> and 
                 {` `}
