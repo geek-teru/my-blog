@@ -83,10 +83,6 @@ export const query = graphql`
           contents {
             id
             title
-            category {
-              id
-              name
-            }
             tag {
               id
               name

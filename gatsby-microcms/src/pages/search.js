@@ -30,12 +30,17 @@ const SearchPage = ({ data }) => {
     const filteredPosts = allPosts.filter(post => {
       const title = post.title?.toLowerCase() || ""
       const content = post.content?.toLowerCase() || ""
-      const category = post.category?.name?.toLowerCase() || ""
+      
+      // タグ検索
+      const tags = post.tag || []
+      const tagMatch = tags.some(tag => 
+        tag.name?.toLowerCase().includes(searchQuery)
+      )
       
       return (
         title.includes(searchQuery) || 
         content.includes(searchQuery) || 
-        category.includes(searchQuery)
+        tagMatch
       )
     })
     
@@ -117,10 +122,6 @@ export const query = graphql`
             title
             content
             publishedAt
-            category {
-              id
-              name
-            }
             tag {
               id
               name
