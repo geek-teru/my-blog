@@ -1,10 +1,10 @@
 /* グローバルスタイルの修正 */
 .global-wrapper {
-  margin: 120px auto 0;  /* 上部マージンはヘッダー分 */
-  max-width: 1200px;     /* コンテンツの最大幅 */
-  padding: 0 2rem;       /* 左右の余白 */
+  margin: 85px auto 0;  /* 上部マージンはヘッダー分 */
+  max-width: 1100px;     /* コンテンツの最大幅を小さく */
+  padding: 0 3rem;       /* 左右の余白を大きく */
   box-sizing: border-box; /* パディングを幅に含める */
-  font-size: 16px;       /* 明示的なフォントサイズ設定 */
+  font-size: 14px;       /* 明示的なフォントサイズ設定 */
 }
 
 /* 既存のヘッダースタイルを上書き */
@@ -17,18 +17,18 @@
 
 .header-content {
   box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 /* レスポンシブ対応の調整 */
 @media (max-width: 768px) {
   .global-wrapper {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
   
   .header-content {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 } 
