@@ -1,18 +1,19 @@
 /* グローバルレイアウト */
 .global-wrapper {
-  margin-top: 120px; /* ヘッダーの高さ分 */
+  margin-top: 85px; /* ヘッダーの高さ分 */
+  min-height: calc(100vh - 85px); /* 最小高さを設定 */
 }
 
 .global-content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
-  font-size: 16px; /* 明示的なフォントサイズ設定 */
+  padding: 0 3rem;
+  font-size: 14px; /* 明示的なフォントサイズ設定 */
 }
 
 .main-content {
-  padding-top: 1rem;
-  font-size: 1rem; /* 明示的なフォントサイズ設定 */
+  padding-top: 0; /* 上部パディングを削除 */
+  font-size: 0.95rem; /* 明示的なフォントサイズ設定 */
 }
 
 .page-container {
@@ -25,7 +26,7 @@
   padding: 2rem 0;
   border-top: 1px solid #e2e8f0;
   color: #718096;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
 }
 
 .footer-content {
@@ -52,7 +53,7 @@
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .global-content {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
   
   .footer-content {

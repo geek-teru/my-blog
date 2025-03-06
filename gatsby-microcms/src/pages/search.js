@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql } from "gatsby"
 import { useLocation } from "@reach/router"
 import queryString from "query-string"
@@ -13,6 +13,31 @@ const SearchPage = ({ data }) => {
   const { q = "" } = queryString.parse(location.search)
   const [searchResults, setSearchResults] = useState([])
   const [isSearching, setIsSearching] = useState(false)
+  const searchPageRef = useRef(null)
+
+  // ページ読み込み時にスクロール位置をリセット
+  useEffect(() => {
+    // 少し遅延させてスクロール（レイアウトが完全に読み込まれた後）
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'auto'
+      })
+    }, 50)
+    
+    // さらに遅延させて再度スクロール（確実に適用するため）
+    const secondTimer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'auto'
+      })
+    }, 150)
+    
+    return () => {
+      clearTimeout(timer)
+      clearTimeout(secondTimer)
+    }
+  }, [q])
 
   // 検索キーワードが変更されたときに検索を実行
   useEffect(() => {
@@ -50,7 +75,7 @@ const SearchPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="search-page">
+      <div className="search-page" ref={searchPageRef} id="search-page-top">
         <h1 className="search-page-title">検索結果</h1>
         
         {/* 検索フォーム */}

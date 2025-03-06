@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useMemo } from "react"
 import { navigate, useStaticQuery, graphql } from "gatsby"
 import "../../styles/search-form.css"
 
@@ -31,8 +31,10 @@ const SearchForm = ({ className }) => {
     }
   `)
 
-  // 全記事データを取得
-  const allPosts = data?.allMicrocmsBlogs?.edges?.[0]?.node?.contents || []
+  // 全記事データを取得（useMemoでメモ化）
+  const allPosts = useMemo(() => {
+    return data?.allMicrocmsBlogs?.edges?.[0]?.node?.contents || []
+  }, [data])
 
   // 検索クエリが変更されたときに候補を更新
   useEffect(() => {
@@ -110,8 +112,24 @@ const SearchForm = ({ className }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (searchQuery.trim()) {
+      // 検索ページに遷移
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
       setShowSuggestions(false)
+      
+      // スクロール位置をリセットするためのタイマー（複数回実行して確実に適用）
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'auto'
+        })
+      }, 50)
+      
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'auto'
+        })
+      }, 150)
     }
   }
 
@@ -120,6 +138,14 @@ const SearchForm = ({ className }) => {
     navigate(`/blog/${suggestion.id}`)
     setShowSuggestions(false)
     setSearchQuery("")
+  }
+
+  // 候補アイテムのキーボードイベント処理
+  const handleSuggestionKeyDown = (e, suggestion) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleSuggestionClick(suggestion)
+    }
   }
 
   return (
@@ -147,13 +173,17 @@ const SearchForm = ({ className }) => {
       
       {/* 検索候補のドロップダウン */}
       {showSuggestions && suggestions.length > 0 && (
-        <div ref={suggestionsRef} className="search-suggestions">
+        <div ref={suggestionsRef} className="search-suggestions" role="listbox" aria-label="検索候補">
           <ul>
             {suggestions.map((suggestion, index) => (
               <li 
                 key={suggestion.id}
                 className={index === selectedIndex ? "selected" : ""}
                 onClick={() => handleSuggestionClick(suggestion)}
+                onKeyDown={(e) => handleSuggestionKeyDown(e, suggestion)}
+                role="option"
+                aria-selected={index === selectedIndex}
+                tabIndex={0}
               >
                 <span className="suggestion-title">{suggestion.title}</span>
               </li>
