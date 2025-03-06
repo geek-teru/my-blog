@@ -7,10 +7,12 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  font-size: 16px; /* 明示的なフォントサイズ設定 */
 }
 
 .main-content {
   padding-top: 1rem;
+  font-size: 1rem; /* 明示的なフォントサイズ設定 */
 }
 
 .page-container {

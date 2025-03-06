@@ -4,16 +4,31 @@
   max-width: 1200px;     /* コンテンツの最大幅 */
   padding: 0 2rem;       /* 左右の余白 */
   box-sizing: border-box; /* パディングを幅に含める */
+  font-size: 16px;       /* 明示的なフォントサイズ設定 */
 }
 
 /* 既存のヘッダースタイルを上書き */
 .global-header {
   left: 0;  /* 左端に固定 */
   right: 0; /* 右端に固定 */
-  width: 100vw; /* ビューポート幅いっぱいに */
+  width: 100%; /* ビューポート幅いっぱいに */
   box-sizing: border-box;
 }
 
 .header-content {
   box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* レスポンシブ対応の調整 */
+@media (max-width: 768px) {
+  .global-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .header-content {
+    padding: 0 1rem;
+  }
 } 
