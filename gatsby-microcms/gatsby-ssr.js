@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
  */
 
+const React = require('react')
+
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
@@ -12,10 +14,10 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
   
   // メタビューポートタグを追加
   setHeadComponents([
-    <meta
-      key="viewport"
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />,
+    React.createElement('meta', {
+      key: 'viewport',
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    })
   ])
 }
