@@ -2,6 +2,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  font-size: 16px;
 }
 
 .blog-post-content-wrapper {
@@ -19,6 +20,7 @@
   overflow: hidden;
   max-width: 800px;
   margin-left: 0;
+  font-size: 1rem;
 }
 
 .blog-post-sidebar {
