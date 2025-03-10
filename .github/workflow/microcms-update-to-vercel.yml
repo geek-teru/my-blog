@@ -1,0 +1,26 @@
+name: MicroCMS Blogs Update to Vercel
+on:
+  repository_dispatch:
+    types: [microcms-update]
+jobs:
+  blog-update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: gatsby-microcms
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          vercel-args: '--prod'
