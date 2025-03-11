@@ -6,11 +6,15 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import BlogCard from "../components/blog-card"
 import SearchForm from "../components/search-form"
+import Pagination from "../components/Pagination"
 import "../../styles/search.css"
+import "../../styles/pagination.css"
 
 const SearchPage = ({ data }) => {
   const location = useLocation()
-  const { q = "" } = queryString.parse(location.search)
+  const { q = "", page = 1 } = queryString.parse(location.search)
+  const currentPage = parseInt(page, 10)
+  const postsPerPage = 9 // 1ページあたり9つのカードを表示
   const [searchResults, setSearchResults] = useState([])
   const [isSearching, setIsSearching] = useState(false)
 
@@ -47,6 +51,13 @@ const SearchPage = ({ data }) => {
     setSearchResults(filteredPosts)
     setIsSearching(false)
   }, [q, data])
+
+  // ページネーション用の計算
+  const numPages = Math.ceil(searchResults.length / postsPerPage)
+  const paginatedResults = searchResults.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  )
 
   return (
     <Layout>
@@ -86,13 +97,21 @@ const SearchPage = ({ data }) => {
         {searchResults.length > 0 && (
           <div className="search-results">
             <div className="blog-posts-container">
-              {searchResults.map(post => (
+              {paginatedResults.map(post => (
                 <BlogCard 
                   key={post.id} 
                   post={{ contents: post }} 
                 />
               ))}
             </div>
+            {/* ページネーション */}
+            {numPages > 1 && (
+              <Pagination 
+                currentPage={currentPage} 
+                numPages={numPages} 
+                baseUrl={`/search?q=${encodeURIComponent(q)}`}
+              />
+            )}
           </div>
         )}
         
