@@ -8,6 +8,8 @@ jobs:
     defaults:
       run:
         working-directory: gatsby-microcms
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
