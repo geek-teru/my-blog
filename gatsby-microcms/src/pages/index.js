@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
   // URLからページ番号を取得
   const currentLocation = useLocation()
   const { page = 1 } = queryString.parse(currentLocation.search)
-  const postsPerPage = 2 // 1ページあたり2つのカードを表示
+  const postsPerPage = 9 // 1ページあたり9つのカードを表示
   const currentPage = parseInt(page, 10)
   
   // データが存在するか確認
