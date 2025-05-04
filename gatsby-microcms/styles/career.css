@@ -1,0 +1,91 @@
+.career-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.career-container h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #ebf4ff;
+  padding-bottom: 0.5rem;
+}
+
+/* 見出し2セクションをカードヘッダーとして表示 */
+.career-content h2 {
+  font-size: 1.2rem;
+  color: #3182ce;
+  background-color: #ebf4ff;
+  padding: 0.8rem 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* カード本体のスタイル */
+.career-card {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 800px;
+  margin-left: 0;
+  padding: 1.5rem;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.career-content h3 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1.1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3rem;
+}
+
+.career-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.career-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.career-content p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .career-container {
+    padding: 1rem;
+  }
+  
+  .career-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .career-content h2 {
+    font-size: 1.3rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .career-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .career-card {
+    padding: 1rem;
+  }
+} 
