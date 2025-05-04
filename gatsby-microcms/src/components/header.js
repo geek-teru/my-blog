@@ -49,6 +49,7 @@ const Header = ({ siteTitle }) => {
           <nav className="main-nav">
             <ul>
               <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+              <li><Link to="/career" onClick={closeMenu}>Career</Link></li>
             </ul>
           </nav>
         </div>
