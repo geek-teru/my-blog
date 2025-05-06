@@ -17,7 +17,7 @@ const CareerPage = ({ data }) => {
         const h2Elements = content.querySelectorAll('h2');
         
         h2Elements.forEach((h2) => {
-          // 見出し2の要素から次の見出し2までの要素をグループ化
+          // 見出し2を含むカードを作成
           const card = document.createElement('div');
           card.className = 'career-card';
           
@@ -25,15 +25,18 @@ const CareerPage = ({ data }) => {
           let nextElement = h2.nextElementSibling;
           const elementsToMove = [];
           
-          while (nextElement && nextElement.tagName !== 'H2') {
+          while (nextElement && nextElement.tagName !== 'H2' && nextElement.tagName !== 'H1') {
             elementsToMove.push(nextElement);
             nextElement = nextElement.nextElementSibling;
           }
           
-          // 見出し2をカードの前に移動
-          h2.parentNode.insertBefore(card, h2.nextSibling);
+          // 見出し2をカードに追加（最初の要素として）
+          card.appendChild(h2);
           
-          // 要素をカードに移動
+          // 見出し2の親ノード（content）にカードを挿入
+          content.insertBefore(card, elementsToMove[0] || nextElement);
+          
+          // 残りの要素をカードに移動
           elementsToMove.forEach(element => {
             card.appendChild(element);
           });
@@ -66,6 +69,6 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="キャリア" />
+export const Head = () => <Seo title="Career" />
 
 export default CareerPage 
